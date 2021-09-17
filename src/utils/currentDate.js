@@ -1,5 +1,8 @@
-export default function getCurrentDate() {
-  let newDate = new Date()
-  let date = newDate.getDate();
-  console.log("today's date is", date)
+export function getCurrentDate() {
+  let today = new Date()
+  let yyyy = today.getFullYear()
+  let mm = today.getMonth() + 1
+  let dd = today.getDate()
+
+  return `${yyyy}-${mm}-${dd}`
 }
