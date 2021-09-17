@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 export default function ImageCard(props) {
 
@@ -9,13 +10,25 @@ export default function ImageCard(props) {
   const [likes, incrementLikes] = useState(0)
   const [likeText, setLikeText] = useState('likes')
 
-  const updateLikes = () => {
+  const handleLike = () => {
     if (likes + 1 === 1) {
       incrementLikes(likes + 1)
       setLikeText('like')
     } else {
       incrementLikes(likes + 1)
       setLikeText('likes')
+    }
+  }
+
+  const handleUnlike = () => {
+    if (likes > 0) {
+      if (likes - 1 === 1) {
+        incrementLikes(likes - 1)
+        setLikeText('like')
+      } else {
+        incrementLikes(likes - 1)
+        setLikeText('likes')
+      }
     }
   }
 
@@ -34,10 +47,14 @@ export default function ImageCard(props) {
           <Button variant="outline-danger" style={{marginBottom: '1rem'}} disabled>
             {likes} {likeText}
           </Button>{' '}
-
-          <Button variant="danger" size="lg" onClick={() => updateLikes()}>
-            Like
-          </Button>
+          <ButtonGroup>
+            <Button variant="danger" size="lg" onClick={() => handleLike()}>
+              Like
+            </Button>
+            <Button variant="outline-danger" size="lg" onClick={() => handleUnlike()}>
+              Unlike
+            </Button>
+          </ButtonGroup>
         </div>
       </Card.Body>
     </Card>
