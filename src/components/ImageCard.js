@@ -11,7 +11,11 @@ export default function ImageCard(props) {
 
   const updateLikes = () => {
     if (likes + 1 === 1) {
-
+      incrementLikes(likes + 1)
+      setLikeText('like')
+    } else {
+      incrementLikes(likes + 1)
+      setLikeText('likes')
     }
   }
 
