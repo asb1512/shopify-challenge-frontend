@@ -1,8 +1,10 @@
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ImageGroup from './ImageGroup';
 
-export default function ImagesContainer() {
+export default function ImagesContainer(props) {
   return (
     <Container fluid>
       <Row>
