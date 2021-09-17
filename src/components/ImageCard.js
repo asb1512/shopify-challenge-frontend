@@ -6,14 +6,21 @@ export default function ImageCard(props) {
   console.log("Image card data", props.image)
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '90%', height: '100%' }}>
       <Card.Img variant="top" src={props.image.img_src} />
       <Card.Body>
         <Card.Title>{props.image.rover.name} Rover</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          Rover Status: {props.image.rover.status}
         </Card.Text>
-        <Button variant="primary">Like</Button>
+        <Card.Text>
+          Camera Type: <br/> {props.image.camera.full_name}
+        </Card.Text>
+        <div className="d-grid">
+        <Button variant="primary" size="lg">
+          Like
+        </Button>
+        </div>
       </Card.Body>
     </Card>
   )
