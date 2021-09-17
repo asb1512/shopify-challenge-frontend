@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { getCurrentDate } from './utils/currentDate';
 import './App.css';
 import NavBar from './components/NavBar';
+import ImagesContainer from './components/ImagesContainer';
 
 function App() {
   
-  const [currentDate] = useState(Date())
   const [isLoading, setLoading] = useState(true)
+  const [images, setImages] = useState(null)
 
   useEffect(() => {
     document.title = 'Mars Rover Today: Shopify Frontend Challenge'
@@ -16,6 +17,8 @@ function App() {
       .then(resp => resp.json())
       .then(respJson => {
         console.log(respJson)
+        setImages(respJson.photos)
+        setLoading(false)
       })
       .catch(error => console.log(error))
   }, [])
@@ -23,9 +26,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <div className="main">
-        {getCurrentDate()}
-      </div>
+      <ImagesContainer images={images} />
     </div>
   );
 }
