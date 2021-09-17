@@ -6,7 +6,9 @@ export default function ImageGroup(props) {
 
   return (
     <>
-      <Row>
+      <Row style={{
+        margin: '5rem',
+        }}>
         {props.images.map(image => {
           return (
             <Col>
