@@ -1,13 +1,19 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ImageCard from './ImageCard';
 
-export default function ImageGroup() {
+export default function ImageGroup(props) {
+
   return (
     <>
       <Row>
-        <Col>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
+        {props.images.map(image => {
+          return (
+            <Col>
+              <ImageCard image={image} key={image.id} />
+            </Col>
+          )
+        })}
       </Row>
     </>
   )
