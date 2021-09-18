@@ -3,6 +3,8 @@ import { getCurrentDate } from './utils/currentDate';
 import './App.css';
 import NavBar from './components/NavBar';
 import ImagesContainer from './components/ImagesContainer';
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   
@@ -22,12 +24,44 @@ function App() {
       .catch(error => console.log(error))
   }, [])
 
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <div className="App">
+          <div className="spinner fullscreen">
+            <Spinner animation="grow" className="m-10-100" />
+            <Spinner animation="grow" className="m-10-100" />
+            <Spinner animation="grow" className="m-10-100" />
+          </div>
+        </div>
+      )
+    } else if (images.length === 0) {
+      return (
+        <div className="App">
+          <div className="too-early">
+            <div className="sad-face">:-(</div>
+            <div className="">There aren't any pictures yet today...</div>
+            <Button variant="outline-danger" className="button">
+              View yesterday's pics
+            </Button>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="App fullscreen">
+          <NavBar />
+          <ImagesContainer images={images} isLoading={isLoading} />
+        </div>
+      )
+    }
+  }
+
   return (
-    <div className="App">
-      <NavBar />
-      <ImagesContainer images={images} isLoading={isLoading} />
-    </div>
-  );
+    <>
+      {renderContent()}
+    </>
+  ); 
 }
 
 export default App;
