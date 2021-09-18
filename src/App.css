@@ -1,1 +1,46 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.spinner {
+  margin: auto;
+  text-align: center;
+  padding-top: 48vh;
+  /* position: absolute;
+  left: 42%;
+  top: 47%; */
+}
+
+.too-early {
+  text-align: center;
+  padding-top: 36vh;
+}
+
+.button {
+  margin: 1rem;
+}
+
+.sad-face {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.m-10-100 {
+  margin: 1rem;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.centered {
+
+}
