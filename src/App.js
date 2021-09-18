@@ -13,7 +13,10 @@ function App() {
 
   useEffect(() => {
     document.title = 'Mars Rover Today: Shopify Frontend Challenge'
+    fetchToday()
+  }, [])
 
+  const fetchToday = () => {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${getCurrentDate()}&api_key=TxaYe4m8QQn29wWfry8ck714cekGTjQ3SAF78rQD`)
       .then(resp => resp.json())
       .then(respJson => {
@@ -22,7 +25,18 @@ function App() {
         setLoading(false)
       })
       .catch(error => console.log(error))
-  }, [])
+  }
+
+  const fetchYesterday = () => {
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${getCurrentDate()}&api_key=TxaYe4m8QQn29wWfry8ck714cekGTjQ3SAF78rQD`)
+      .then(resp => resp.json())
+      .then(respJson => {
+        console.log(respJson)
+        setImages(respJson.photos)
+        setLoading(false)
+      })
+      .catch(error => console.log(error))
+  }
 
   const renderContent = () => {
     if (isLoading) {
