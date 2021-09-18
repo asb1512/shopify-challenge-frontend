@@ -10,9 +10,9 @@ export default function ImagesContainer(props) {
   const renderGroups = () => {
     return (
       <>
-        <ImageGroup images={firstPiece} />
-        <ImageGroup images={secondPiece} />
-        <ImageGroup images={thridPiece} />
+        <ImageGroup images={firstPiece} isLoading={props.isLoading}/>
+        <ImageGroup images={secondPiece} isLoading={props.isLoading}/>
+        <ImageGroup images={thridPiece} isLoading={props.isLoading}/>
       </>
     )
   }

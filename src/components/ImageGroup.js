@@ -12,7 +12,7 @@ export default function ImageGroup(props) {
         {props.images.map(image => {
           return (
             <Col>
-              <ImageCard image={image} key={image.id} />
+              <ImageCard image={image} key={image.id} isLoading={props.isLoading} />
             </Col>
           )
         })}
