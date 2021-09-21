@@ -18,13 +18,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <div className="App">
             <NavBar />
             <ImagesContainer />
           </div>
         </Route>
-        <Route path="/yesterday">
+        <Route exact path="/yesterday">
           <div className="App">
             <NavBar />
             <ImagesContainerOther />
