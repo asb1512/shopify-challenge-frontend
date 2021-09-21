@@ -30,7 +30,7 @@ export default function ImagesContainerOther() {
   const thridPiece = images?.slice(10, 15)
 
   const renderContent = () => {
-    if (isLoading) {
+    if (isLoading || images.length === 0) {
       return (
         <div className="spinner fullscreen">
           <Spinner animation="grow" className="m-10-100" />
