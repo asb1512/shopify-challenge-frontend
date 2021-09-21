@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import { getCurrentDate } from '../utils/currentDate';
 import Container from 'react-bootstrap/Container';
 import ImageGroup from './ImageGroup';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default function ImagesContainer() {
 
@@ -30,12 +30,6 @@ export default function ImagesContainer() {
   const secondPiece = images?.slice(5, 10)
   const thridPiece = images?.slice(10, 15)
 
-  const renderRedirect = () => {
-    return (
-      <Redirect to="yesterday" />
-    )
-  }
-
   const renderContent = () => {
     if (isLoading) {
       return (
@@ -50,9 +44,11 @@ export default function ImagesContainer() {
         <div className="too-early">
           <div className="sad-face">:-(</div>
           <div className="">There aren't any pictures yet today...</div>
-          <Button variant="outline-danger" className="button" onClick={() => renderRedirect()}>
-            View yesterday's pics
-          </Button>
+          <LinkContainer to="/yesterday">
+            <Button variant="outline-danger" className="button">
+              View yesterday's pics
+            </Button>
+          </LinkContainer>
         </div>
       )
     } else {
