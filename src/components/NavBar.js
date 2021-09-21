@@ -8,17 +8,17 @@ export default function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <LinkContainer to="/">
-          <Navbar.Brand href="#home">Mars Rover Images</Navbar.Brand>
+        <LinkContainer to="/" variant="danger">
+          <Navbar.Brand href="#">Mars Rover Images</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to="/">
-              <Nav.Link href="#home">Today</Nav.Link>
+              <Nav.Link href="#">Today</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/yesterday">
-              <Nav.Link href="#link">Yesterday</Nav.Link>
+              <Nav.Link href="#">Yesterday</Nav.Link>
             </LinkContainer>
             <NavDropdown title="Date Picker" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
