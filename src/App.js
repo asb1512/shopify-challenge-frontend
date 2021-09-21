@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { getCurrentDate } from './utils/currentDate';
 import { getYesterdaysDate } from './utils/yesterdaysDate';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import NavBar from './components/NavBar';
 import ImagesContainer from './components/ImagesContainer';
 import Spinner from 'react-bootstrap/Spinner';
@@ -73,9 +78,13 @@ function App() {
   }
 
   return (
-    <>
-      {renderContent()}
-    </>
+    <Router>
+      <Switch>
+        <Route path="/">
+          {renderContent()}
+        </Route>
+      </Switch>
+    </Router>
   ); 
 }
 
