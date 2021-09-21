@@ -2,18 +2,24 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Mars Rover Images</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand href="#home">Mars Rover Images</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Today</Nav.Link>
-            <Nav.Link href="#link">Yesterday</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link href="#home">Today</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/yesterday">
+              <Nav.Link href="#link">Yesterday</Nav.Link>
+            </LinkContainer>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
