@@ -1,10 +1,23 @@
+import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function NavBar() {
+
+  const [showDatePicker, setShowDatePicker] = useState(false)
+
+  const renderDatePicker = () => {
+    return (
+      <Nav.Link>
+        <DatePicker />
+      </Nav.Link>
+    )
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -20,13 +33,11 @@ export default function NavBar() {
             <LinkContainer to="/yesterday">
               <Nav.Link href="#">Yesterday</Nav.Link>
             </LinkContainer>
-            <NavDropdown title="Date Picker" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link onClick={() => setShowDatePicker(true)}
+            >
+              Pick a date
+            </Nav.Link>
+            {showDatePicker ? renderDatePicker() : null}
           </Nav>
         </Navbar.Collapse>
       </Container>
