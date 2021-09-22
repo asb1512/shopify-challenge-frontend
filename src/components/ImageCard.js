@@ -6,8 +6,6 @@ import Placeholder from 'react-bootstrap/Placeholder';
 
 export default function ImageCard(props) {
 
-  console.log("Image card data", props.image)
-
   const [likes, incrementLikes] = useState(0)
   const [likeText, setLikeText] = useState('likes')
 

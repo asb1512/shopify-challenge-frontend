@@ -18,7 +18,6 @@ export default function ImagesContainerOther() {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${getYesterdaysDate()}&api_key=TxaYe4m8QQn29wWfry8ck714cekGTjQ3SAF78rQD`)
       .then(resp => resp.json())
       .then(respJson => {
-        console.log(respJson)
         setImages(respJson.photos)
         setLoading(false)
       })

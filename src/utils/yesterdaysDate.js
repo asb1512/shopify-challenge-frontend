@@ -11,5 +11,3 @@ export function getYesterdaysDate() {
   }
   return `${yyyy}-${mm}-${dd()}`
 }
-
-console.log("yesterday's date", getYesterdaysDate())

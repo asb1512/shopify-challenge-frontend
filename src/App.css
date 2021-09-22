@@ -9,9 +9,6 @@
   margin: auto;
   text-align: center;
   padding-top: 48vh;
-  /* position: absolute;
-  left: 42%;
-  top: 47%; */
 }
 
 .too-early {
@@ -39,8 +36,4 @@
 .fullscreen {
   width: 100vw;
   height: 100vh;
-}
-
-.centered {
-
 }
